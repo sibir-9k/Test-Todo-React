@@ -3,7 +3,7 @@ import { MyButton } from '../../UI/button/MyButton'
 import style from './Todo.module.css'
 
 export const Todo = (props) => {
-  console.log(props)
+ 
   return (
     <div className={style.todo}>
 				<div className={style.todo__content}>
@@ -11,7 +11,7 @@ export const Todo = (props) => {
 					<p>{props.todo.subtitle}</p>
 				</div>
         <div className='todo__btn'>
-          <MyButton text="Удалить"/>
+          <MyButton onClick={() => props.remove(props.todo)} text="Удалить"/>
         </div>
 			</div>
   )
