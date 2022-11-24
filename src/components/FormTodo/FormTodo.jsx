@@ -12,6 +12,7 @@ export const FormTodo = ({ create }) => {
       ...todo,
       id: Date.now(),
     };
+    console.log(newTodo)
     create(newTodo);
     setTodo({ title: "", subtitle: "" });
   };
@@ -20,6 +21,11 @@ export const FormTodo = ({ create }) => {
     <form className={style.addTodo}>
       <MyInput value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })} placeholder="Название задачи ...." />
       <MyInput value={todo.subtitle} onChange={(e) => setTodo({ ...todo, subtitle: e.target.value })} placeholder="Описание задачи ...." />
+
+      <label htmlFor="file">Прикрепите фаил к задаче</label>
+      <input type="file" id="file" name="file" multiple></input>    
+      
+
       <MyButton onClick={addNewTodo} text="Добавить задачу" />
     </form>
   );
