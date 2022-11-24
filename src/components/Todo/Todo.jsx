@@ -1,15 +1,17 @@
 import React from 'react'
+import { MyButton } from '../../UI/button/MyButton'
 import style from './Todo.module.css'
 
-export const Todo = ({todo}) => {
+export const Todo = (props) => {
+  console.log(props)
   return (
     <div className={style.todo}>
-				<div className="todo__content">
-					<strong>{todo.id}. {todo.title}</strong>
-					<p>{todo.subtitle}</p>
+				<div className={style.todo__content}>
+					<strong>{props.number}. {props.todo.title}</strong>
+					<p>{props.todo.subtitle}</p>
 				</div>
         <div className='todo__btn'>
-          <button>Удалить</button>
+          <MyButton text="Удалить"/>
         </div>
 			</div>
   )

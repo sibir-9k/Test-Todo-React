@@ -11,3 +11,7 @@
 .todo:first-child{
   margin-top: 2rem;
 }
+
+.todo__content{
+  font-size: 1.1rem;
+}
