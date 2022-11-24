@@ -11,14 +11,23 @@ function App() {
 		{id: 4, title: "Bootstrap", subtitle: "Web lang 3"},
 	]);
 
-const createTodo = (newTodo) => {
-  setTodos([...todos, newTodo])
-}
+	const createTodo = (newTodo) => {
+		setTodos([...todos, newTodo]);
+	};
+
+	const removeTodo = (todo) => {
+		setTodos(todos.filter((p) => p.id !== todo.id));
+	};
 
 	return (
 		<div className="App">
-			<FormTodo create={createTodo}/>
-			<TodoList todos={todos} title="Список задач:" />
+			<FormTodo create={createTodo} />
+			{todos.length !== 0 
+      ? <TodoList remove={removeTodo} todos={todos} title="Список задач:" /> 
+      : <h2 style={{ textAlign: 'center', marginTop: '1rem', marginBottom: '1.5rem' }}>
+        Список задач пуст
+        </h2>
+      }
 		</div>
 	);
 }
